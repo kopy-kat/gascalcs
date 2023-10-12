@@ -4,7 +4,7 @@ pragma solidity ^0.8.15;
 import "forge-std/Test.sol";
 import "forge-std/console.sol";
 import {UserOperation, UserOperationLib} from "account-abstraction/interfaces/UserOperation.sol";
-import {ECDSA} from "solady/src/utils/ECDSA.sol";
+import {ECDSA} from "solady/utils/ECDSA.sol";
 import {IEntryPoint, EntryPoint} from "account-abstraction/core/EntryPoint.sol";
 import {SimpleAccountFactory} from "account-abstraction/samples/SimpleAccountFactory.sol";
 import {SimpleAccount} from "account-abstraction/samples/SimpleAccount.sol";
