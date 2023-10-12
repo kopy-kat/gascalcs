@@ -9,7 +9,7 @@ import {IEntryPoint, EntryPoint} from "account-abstraction/core/EntryPoint.sol";
 import {SimpleAccountFactory} from "account-abstraction/samples/SimpleAccountFactory.sol";
 import {SimpleAccount} from "account-abstraction/samples/SimpleAccount.sol";
 
-contract GasTest is Test {
+contract SimpleAccountEntryPoint is Test {
     IEntryPoint public entryPoint;
     AccountFactory public factory;
 
