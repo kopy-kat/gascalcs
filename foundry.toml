@@ -1,2 +1,8 @@
 [profile.ci.fuzz]
 runs = 10_000
+
+[fmt]
+bracket_spacing = true
+line_length = 100
+multiline_func_header = "all"
+number_underscore="thousands"
