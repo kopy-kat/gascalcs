@@ -97,7 +97,7 @@ contract AccountEntireSigReversed {
 
 contract AccountRawSig {
     function validateUserOp(
-        UserOperation calldata userOp,
+        UserOperation memory userOp,
         bytes32 userOpHash,
         uint256 missingAccountFunds
     )
@@ -105,10 +105,16 @@ contract AccountRawSig {
         virtual
         returns (uint256 validationData)
     {
-        address validationModule = address(uint160(bytes20(userOp.signature[0:20])));
-        UserOperation memory formattedUserOp = userOp;
-        formattedUserOp.signature = userOp.signature[20:];
-        validationData = IValidator(validationModule).validateUserOp(formattedUserOp, userOpHash);
+        bytes calldata userOpSignature;
+        uint256 userOpEndOffset;
+        assembly {
+            userOpEndOffset := add(calldataload(0x04), 0x24)
+            userOpSignature.offset := add(calldataload(add(userOpEndOffset, 0x120)), userOpEndOffset)
+            userOpSignature.length := calldataload(sub(userOpSignature.offset, 0x20))
+        }
+        address validationModule = address(uint160(bytes20(userOpSignature[0:20])));
+        userOp.signature = userOpSignature[20:];
+        validationData = IValidator(validationModule).validateUserOp(userOp, userOpHash);
     }
 }
 
