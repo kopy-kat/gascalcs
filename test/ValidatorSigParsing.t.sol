@@ -3,8 +3,8 @@ pragma solidity ^0.8.19;
 
 import { Test } from "forge-std/Test.sol";
 import { console } from "forge-std/console.sol";
-import { UserOperation, UserOperationLib } from "account-abstraction/interfaces/UserOperation.sol";
-import { ECDSA } from "solady/utils/ECDSA.sol";
+import { UserOperation } from "account-abstraction/interfaces/UserOperation.sol";
+import { ECDSA } from "solady/src/utils/ECDSA.sol";
 import { IEntryPoint, EntryPoint } from "account-abstraction/core/EntryPoint.sol";
 
 interface IValidator {
@@ -109,7 +109,8 @@ contract AccountRawSig {
         uint256 userOpEndOffset;
         assembly {
             userOpEndOffset := add(calldataload(0x04), 0x24)
-            userOpSignature.offset := add(calldataload(add(userOpEndOffset, 0x120)), userOpEndOffset)
+            userOpSignature.offset :=
+                add(calldataload(add(userOpEndOffset, 0x120)), userOpEndOffset)
             userOpSignature.length := calldataload(sub(userOpSignature.offset, 0x20))
         }
         address validationModule = address(uint160(bytes20(userOpSignature[0:20])));

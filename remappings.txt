@@ -1,6 +1,12 @@
 account-abstraction/=lib/account-abstraction/contracts/
 ds-test/=lib/forge-std/lib/ds-test/src/
 forge-std/=lib/forge-std/src/
-solady/=lib/solady/src/
+solady/=lib/solady/
 @openzeppelin/=lib/openzeppelin-contracts/
 openzeppelin-contracts/=lib/openzeppelin-contracts/
+registry/=lib/registry/src/
+@openzeppelin/contracts/=lib/registry/lib/openzeppelin-contracts/contracts/
+solidity-rlp/=lib/registry/lib/Solidity-RLP/
+checknsignatures/=lib/registry/lib/checknsignatures/
+solmate/=lib/registry/lib/solmate/
+@prb/math/=lib/prb-math/

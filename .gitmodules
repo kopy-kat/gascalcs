@@ -13,3 +13,6 @@
 [submodule "lib/registry"]
 	path = lib/registry
 	url = https://github.com/rhinestonewtf/registry
+[submodule "lib/prb-math"]
+	path = lib/prb-math
+	url = https://github.com/PaulRBerg/prb-math
