@@ -4,7 +4,7 @@ pragma solidity ^0.8.19;
 import { Test } from "forge-std/Test.sol";
 import { console } from "forge-std/console.sol";
 import { UserOperation } from "account-abstraction/interfaces/UserOperation.sol";
-import { ECDSA } from "solady/src/utils/ECDSA.sol";
+import { ECDSA } from "solady/utils/ECDSA.sol";
 import { IEntryPoint, EntryPoint } from "account-abstraction/core/EntryPoint.sol";
 
 interface IValidator {

@@ -5,7 +5,7 @@ import { Test } from "forge-std/Test.sol";
 import { console } from "forge-std/console.sol";
 import { UD60x18, ud, intoUint256 } from "@prb/math/src/UD60x18.sol";
 import { PRBMathCastingUint256 } from "@prb/math/src/casting/Uint256.sol";
-import { LibZip } from "solady/src/utils/LibZip.sol";
+import { LibZip } from "solady/utils/LibZip.sol";
 
 contract L2Gas is Test {
     function compressWithBrotli(bytes memory data)
